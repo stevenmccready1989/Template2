@@ -1,0 +1,693 @@
+SampleScreen1 As screen:
+    Fill: =RGBA(242, 239, 223, 1)
+    LoadingSpinnerColor: =RGBA(30, 14, 91, 1)
+
+    RootContainer As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =Parent.Height
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =2
+
+        HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(83, 67, 151, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =10
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =0.00
+            Width: =Parent.Width
+            X: =0.00
+            ZIndex: =1
+
+            icoBackArrow As icon.ChevronLeft:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =30
+                Icon: =Icon.ChevronLeft
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =30
+                X: =0.00
+                ZIndex: =1
+
+            icoForwardArrow As icon.ChevronRight:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =30
+                Icon: =Icon.ChevronRight
+                OnSelect: =Navigate(SampleScreen2, ScreenTransition.Fade)
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =30
+                X: =83.28
+                ZIndex: =2
+
+            lblSpacerLeft As label:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                LayoutMinWidth: =0
+                PaddingRight: =3.88
+                PaddingTop: =3.88
+                Size: =10.08
+                Text: =
+                Visible: =If(App.ActiveScreen.Size <= ScreenSize.Small, false,true)
+                Width: =116.30
+                X: =166.56
+                ZIndex: =3
+
+            txtSearchBar As text:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: |-
+                    ="Screensize: " & App.ActiveScreen.Size & " | Screen width:" & App.ActiveScreen.Width
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FillPortions: =3
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(92, 74, 168, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(185, 173, 246, 1)
+                LayoutMinWidth: =200
+                PaddingRight: =3.88
+                PaddingTop: =3.88
+                Size: =12
+                Width: =248.09
+                X: =316.25
+                ZIndex: =4
+
+            lblSpacerRight As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                LayoutMinWidth: =0
+                PaddingRight: =3.88
+                PaddingTop: =3.88
+                Size: =15.51
+                Text: =""
+                Visible: =If(App.ActiveScreen.Size <= ScreenSize.Small, false, true)
+                Width: =116.30
+                X: =748.46
+                ZIndex: =5
+
+            lblUserFullName As label:
+                Align: =Align.Right
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                PaddingRight: =3.88
+                PaddingTop: =3.88
+                Size: =12
+                Text: =User().FullName
+                Visible: =If(App.ActiveScreen.Size <= ScreenSize.Medium, false,true)
+                Width: =116.30
+                X: =597.72
+                ZIndex: =6
+
+            imgUser As image:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =50
+                Image: =User().Image
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Visible: =If(App.ActiveScreen.Size <= ScreenSize.Small, false, true)
+                Width: =50
+                X: =898.16
+                ZIndex: =7
+
+            icoCancel As icon.Cancel:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =30
+                Icon: =Icon.Cancel
+                PaddingTop: =0.00
+                Width: =30
+                X: =1008.84
+                ZIndex: =8
+
+        BodyContainer As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            FillPortions: =0
+            Height: =Parent.Height-HeaderContainer.Height
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =Parent.Width
+            X: =0.00
+            ZIndex: =2
+
+            LeftNavContainer As groupContainer.verticalAutoLayoutContainer:
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(252, 252, 249, 1)
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =60
+                X: =0.00
+                ZIndex: =1
+
+                icoContacts As icon.People:
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    Color: =RGBA(92, 74, 168, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Icon: =Icon.Person
+                    OnSelect: |-
+                        =UpdateContext({varToggle: !varToggle})
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Width: =49.62
+                    X: =23.19
+                    ZIndex: =5
+
+                icoMore As icon.DetailList:
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    Color: =RGBA(92, 74, 168, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Icon: =Icon.DetailList
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Width: =49.62
+                    X: =23.19
+                    ZIndex: =6
+
+            ChatContainer As groupContainer.verticalAutoLayoutContainer:
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(252, 252, 249, 1)
+                Height: =Parent.Height
+                LayoutMinWidth: =200
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Visible: |-
+                    =If(
+                        //If small screen and var toggle = true, show this container.  varToggle set using icon in left nav.  Gets reset to false when go to large screen by timer tmrSetChatVar
+                        App.ActiveScreen.Size = ScreenSize.Small && varToggle,
+                        true,
+                        //If small screen and var toggle = false, hide this container
+                        App.ActiveScreen.Size = ScreenSize.Small && !varToggle,
+                        false,
+                        //We are on screensize > 1 so use a switch to determine if we show container
+                        Switch(
+                            App.ActiveScreen.Size,
+                            ScreenSize.ExtraLarge,
+                            true,
+                            ScreenSize.Large,
+                            true,
+                            ScreenSize.Medium,
+                            true,
+                            false
+                        )
+                    )
+                Width: =
+                X: =96.98
+                ZIndex: =2
+
+                ChatContainerHeader As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    BorderColor: =RGBA(83, 67, 151, 1)
+                    BorderThickness: =1
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(252, 252, 249, 1)
+                    FillPortions: =0
+                    Height: =100
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =2
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =0.00
+                    Width: =Parent.Width
+                    X: =0.00
+                    ZIndex: =1
+
+                    lblChatContactsHeader As label:
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =5
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinWidth: =75
+                        PaddingRight: =3.88
+                        PaddingTop: =3.88
+                        Size: =If(App.ActiveScreen.Size <= ScreenSize.Medium, 12, 15)
+                        Text: ="Contacts"
+                        Width: =189.75
+                        X: =0.00
+                        ZIndex: =1
+
+                    icoMoreChatHeader As icon.More:
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        FillPortions: =1
+                        Height: =If(App.ActiveScreen.Size <= ScreenSize.Medium, 30, 40)
+                        Icon: =Icon.More
+                        LayoutMinWidth: =40
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Width: =Max(App.Height, App.MinScreenHeight)
+                        X: =189.75
+                        ZIndex: =2
+
+                    icoChatHeaderSettings As icon.Settings:
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        FillPortions: =1
+                        Height: =If(App.ActiveScreen.Size <= ScreenSize.Medium, 30, 40)
+                        Icon: =Icon.Settings
+                        LayoutMinWidth: =40
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Width: =Max(App.Height, App.MinScreenHeight)
+                        X: =239.30
+                        ZIndex: =3
+
+                ContactsGallery As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderThickness: =5
+                    Fill: =RGBA(252, 252, 249, 1)
+                    FillPortions: =6
+                    Height: =Parent.Height
+                    Items: =Contacts
+                    Layout: =Layout.Vertical
+                    OnSelect: |-
+                        =UpdateContext({varToggle:false})
+                    ShowNavigation: =If(App.ActiveScreen.Size <> 1,false,true)
+                    ShowScrollbar: =If(App.ActiveScreen.Size <> 1,true,false)
+                    TemplateFill: =If(ThisItem.IsSelected, RGBA(83,67,151,1), RGBA(227,210,252,1))
+                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(100, Self.Height - 60))
+                    Width: =Parent.Width
+                    X: =0.00
+                    ZIndex: =2
+
+                    Label5 As label:
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =If(ThisItem.IsSelected, White, RGBA(0, 0, 0, 1))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =48
+                        OnSelect: =Select(Parent)
+                        PaddingRight: =3.88
+                        PaddingTop: =3.88
+                        Size: =12
+                        Text: =ThisItem.'Full Name'
+                        Width: =Parent.Width
+                        X: =0.00
+                        Y: =5
+                        ZIndex: =1
+
+                    Label7 As label:
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =If(ThisItem.IsSelected, White, RGBA(0, 0, 0, 1))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =37
+                        OnSelect: =Select(Parent)
+                        Size: =10
+                        Text: =ThisItem.Email
+                        Width: =247
+                        Y: =42
+                        ZIndex: =3
+
+            MainBodyContainer As groupContainer.verticalAutoLayoutContainer:
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =3
+                Height: =Parent.Height
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Visible: =If(App.ActiveScreen.Size <=1 && varToggle, false,true)
+                Width: =
+                X: =384.77
+                ZIndex: =4
+
+                frmContactDetails As form:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    DataSource: =Contacts
+                    Fill: =RGBA(252, 252, 249, 1)
+                    Height: =Parent.Height
+                    Item: =ContactsGallery.Selected
+                    NumberOfColumns: =4
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    "'Job Title_DataCard1' As typedDataCard.textualEditCard":
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="jobtitle"
+                        Default: =ThisItem.'Job Title'
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: ="Job Title"
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Contacts], DataSourceInfo.MaxLength, "jobtitle")
+                        Required: =false
+                        Update: =DataCardValue4.Text
+                        Width: =Parent.Width / App.ActiveScreen.Size
+                        X: =3
+                        Y: =0
+                        ZIndex: =1
+
+                        DataCardKey4 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =34
+                            Size: =13
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue4 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            BorderThickness: =2
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayMode: =Parent.DisplayMode
+                            FocusedBorderThickness: =4
+                            HoverBorderColor: =RGBA(92, 74, 168, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(185, 173, 246, 1)
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =13
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage3 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(168, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue4.Y + DataCardValue4.Height
+                            ZIndex: =3
+
+                        StarVisible3 As label:
+                            Align: =Align.Center
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =DataCardKey4.Height
+                            Size: =13
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey4.Y
+                            ZIndex: =4
+
+                    "'Full Name_DataCard1' As typedDataCard.textualViewCard":
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="fullname"
+                        Default: =ThisItem.'Full Name'
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: ="Full Name"
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Width: =Parent.Width / App.ActiveScreen.Size
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey1 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =34
+                            Size: =13
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue1 As label:
+                            AutoHeight: =true
+                            BorderColor: =RGBA(92, 74, 168, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =13
+                            Text: =Parent.Default
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                            ZIndex: =2
+
+                    Email_DataCard1 As typedDataCard.textualEditCard:
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="emailaddress1"
+                        Default: =ThisItem.Email
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: ="Email"
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Contacts], DataSourceInfo.MaxLength, "emailaddress1")
+                        Required: =false
+                        Update: =DataCardValue2.Text
+                        Width: =Parent.Width / App.ActiveScreen.Size
+                        X: =1
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey2 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =34
+                            Size: =13
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue2 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            BorderThickness: =2
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayMode: =Parent.DisplayMode
+                            FocusedBorderThickness: =4
+                            HoverBorderColor: =RGBA(92, 74, 168, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(185, 173, 246, 1)
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =13
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage1 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(168, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue2.Y + DataCardValue2.Height
+                            ZIndex: =3
+
+                        StarVisible1 As label:
+                            Align: =Align.Center
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =DataCardKey2.Height
+                            Size: =13
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey2.Y
+                            ZIndex: =4
+
+                    "'Business Phone_DataCard1' As typedDataCard.textualEditCard":
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="telephone1"
+                        Default: =ThisItem.'Business Phone'
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: ="Business Phone"
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Contacts], DataSourceInfo.MaxLength, "telephone1")
+                        Required: =false
+                        Update: =DataCardValue3.Text
+                        Width: =Parent.Width / App.ActiveScreen.Size
+                        X: =2
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey3 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =34
+                            Size: =13
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue3 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            BorderThickness: =2
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayMode: =Parent.DisplayMode
+                            FocusedBorderThickness: =4
+                            HoverBorderColor: =RGBA(92, 74, 168, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(185, 173, 246, 1)
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =13
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage2 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(168, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue3.Y + DataCardValue3.Height
+                            ZIndex: =3
+
+                        StarVisible2 As label:
+                            Align: =Align.Center
+                            Color: =RGBA(92, 74, 168, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =DataCardKey3.Height
+                            Size: =13
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey3.Y
+                            ZIndex: =4
+
+    tmrSetChatVar As timer:
+        Duration: =1000
+        Fill: =RGBA(30, 14, 91, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(30, 14, 91, 1), -20%)
+        OnTimerStart: |-
+            =//Check to ensure we arent in screen size 1 and reset varToggle to false.  This means gchat container doesnt display by default when on screen size 1
+            If(
+                App.ActiveScreen.Size <> ScreenSize.Small,
+                UpdateContext({varToggle: false})
+            )
+        Start: =App.ActiveScreen.Size <>1
+        Visible: =false
+        X: =992
+        Y: =20
+        ZIndex: =3
+

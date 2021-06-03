@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_resources",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_resource",
+    "MaxGetRowsCount": 500,
+    "Name": "Resources",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_Pattern": "Pattern",
+      "cat_resource_AsyncOperations": "System Jobs",
+      "cat_resource_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_resource_DuplicateBaseRecord": "Duplicate Records (cat_resource_DuplicateBaseRecord)",
+      "cat_resource_DuplicateMatchingRecord": "Duplicate Records (cat_resource_DuplicateMatchingRecord)",
+      "cat_resource_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_resource_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_resource_ProcessSession": "Process Sessions",
+      "cat_resource_SyncErrors": "Sync Errors",
+      "cat_resourceid": "Resource",
+      "cat_Review": "Review",
+      "cat_url": "URL",
+      "cr9fa_Event_Resource_cat_Resource": "Events",
+      "cr9fa_name": "Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "crfd9_lb_nomressource": "Lb_NomRessource",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Resources",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Resources (Views)",
+    "Name": "_cat_resource_views",
+    "RelatedEntityName": "Resources",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4ec68e31-7384-46c0-a6ee-fe32e794d2e9": "Resource Associated View",
+      "75511c95-f367-4813-9b46-db65844400ef": "Inactive Resources",
+      "a659cc3d-a18b-4f91-a098-143bcdf6288a": "Active Resources",
+      "e07dff5a-3079-4fc2-b2ac-f3c89350c6a8": "Resource Advanced Find View",
+      "e4d5bd52-195f-4488-a5b3-efbd1aa0cc30": "Resource Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Resources)",
+    "Name": "cat_resource_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Resources"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Resources",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Resources)",
+    "Name": "cat_resource_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Resources"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Resources",
+    "Type": "OptionSetInfo"
+  }
+]

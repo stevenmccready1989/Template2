@@ -1,0 +1,8 @@
+ReusableComponentScreen As screen:
+    Fill: =RGBA(242, 239, 223, 1)
+    LoadingSpinnerColor: =RGBA(30, 14, 91, 1)
+
+    Component1_1 As Component1:
+        ScreenSize: =App.ActiveScreen.Size
+        Width: =Parent.Width
+

@@ -1,0 +1,31 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(
+            varToggle,
+            "false"
+        );
+        Set(
+            OutputPDFFilename,
+            Blank()
+        );
+        Set(
+            ContactImage,
+            Blank()
+        );
+        Set(
+            TemplateBase64,
+            JSON(
+                Template,
+                IncludeBinaryData
+            )
+        );
+        Set(
+            FillPDF,
+            false
+        );
+        Set(
+            FillPDFChecked,
+            false
+        )
+

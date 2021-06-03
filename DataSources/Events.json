@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr9fa_events",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr9fa_event",
+    "MaxGetRowsCount": 500,
+    "Name": "Events",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr9fa_end": "End",
+      "cr9fa_event_AsyncOperations": "System Jobs",
+      "cr9fa_event_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr9fa_event_DuplicateBaseRecord": "Duplicate Records (cr9fa_event_DuplicateBaseRecord)",
+      "cr9fa_event_DuplicateMatchingRecord": "Duplicate Records (cr9fa_event_DuplicateMatchingRecord)",
+      "cr9fa_event_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr9fa_event_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr9fa_event_ProcessSession": "Process Sessions",
+      "cr9fa_event_SyncErrors": "Sync Errors",
+      "cr9fa_eventid": "Event",
+      "cr9fa_name": "Name",
+      "cr9fa_Resource": "Resource",
+      "cr9fa_start": "Start",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Events",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Events (Views)",
+    "Name": "_cr9fa_event_views",
+    "RelatedEntityName": "Events",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1adcaade-01ca-4e7f-abaa-f78c13616a7e": "Inactive Events",
+      "1e637b60-20f9-4a90-8f04-05f89bd4a2c1": "Event Lookup View",
+      "b43c1da6-3a0a-49c6-9857-86572fa3fc8a": "Active Events",
+      "d42f6f31-076d-4f17-af7a-e284bbf186d4": "Event Associated View",
+      "f2a1afb6-ee29-4d7c-baef-45f26cd4f69d": "Event Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Events)",
+    "Name": "cr9fa_event_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Events"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Events",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Events)",
+    "Name": "cr9fa_event_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Events"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Events",
+    "Type": "OptionSetInfo"
+  }
+]

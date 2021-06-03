@@ -1,0 +1,633 @@
+SampleScreen2 As screen:
+    Fill: =RGBA(242, 239, 223, 1)
+    LoadingSpinnerColor: =RGBA(30, 14, 91, 1)
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        DisplayMode: =DisplayMode.Edit
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(83, 67, 151, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =2
+
+            Label4 As label:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Size: =13
+                Text: =""
+                Width: =20
+                ZIndex: =1
+
+            icoBackArrow_1 As icon.ChevronLeft:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =30
+                Icon: =Icon.ChevronLeft
+                OnSelect: =Navigate(SampleScreen1, ScreenTransition.Fade)
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =30
+                X: =0.00
+                ZIndex: =2
+
+            icoForwardArrow_1 As icon.ChevronRight:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =30
+                Icon: =Icon.ChevronRight
+                OnSelect: =Navigate(SampleScreen3, ScreenTransition.Fade)
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =30
+                X: =83.28
+                ZIndex: =3
+
+            Label2 As label:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                Size: =13
+                Text: =""
+                ZIndex: =4
+
+            lblAppName As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =6
+                Size: =20
+                Text: ="Responsive Template App"
+                ZIndex: =5
+
+            lblUserName As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                Size: =13
+                Text: =User().FullName
+                ZIndex: =6
+
+            imgUser_1 As image:
+                BorderColor: =RGBA(175, 191, 224, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(56, 96, 178, 1)
+                Height: =50
+                Image: =User().Image
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =50
+                ZIndex: =7
+
+            Label3 As label:
+                BorderColor: =RGBA(92, 74, 168, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Size: =13
+                Text: =""
+                Width: =20
+                ZIndex: =8
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutWrap: =true
+            ZIndex: =3
+
+            galleryAccounts1 As gallery.variableTemplateHeightGallery:
+                AlignInContainer: =AlignInContainer.Center
+                BorderThickness: =1
+                Fill: =RGBA(252, 252, 249, 1)
+                Height: |-
+                    =Switch(
+                        SampleScreen2.Size,
+                        ScreenSize.Small,
+                        (SampleScreen2.Height - HeaderContainer1.Height - FooterContainer1.Height / 2),
+                        SampleScreen2.Height - HeaderContainer1.Height - FooterContainer1.Height
+                    )
+                Items: =Filter(Accounts, 'Accounts (Views)'.'All Accounts')
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =500
+                LayoutMinWidth: =250
+                TemplateFill: =If(ThisItem.IsSelected, RGBA(227,210,252,1), LightGray)
+                TemplateSize: =280
+                ZIndex: =1
+
+                lblGallAccountName As label:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =ThisItem.'Account Name'
+                    Width: =266
+                    X: =12
+                    Y: =8
+                    ZIndex: =1
+
+                lblGallCreatedOn As label:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =ThisItem.'Created On'
+                    X: =12
+                    Y: =48
+                    ZIndex: =2
+
+                lblGallAddCity1 As label:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: |-
+                        =ThisItem.'Address 1: City'
+                    X: =12
+                    Y: =101
+                    ZIndex: =3
+
+            formAccounts1 As formViewer:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(30, 14, 91, 1)
+                BorderThickness: =1
+                DataSource: =Accounts
+                Fill: =RGBA(252, 252, 249, 1)
+                FillPortions: =2
+                Height: |-
+                    =Switch(
+                        SampleScreen2.Size,
+                        ScreenSize.Small,
+                        (SampleScreen2.Height - HeaderContainer1.Height - FooterContainer1.Height / 2),
+                        SampleScreen2.Height - HeaderContainer1.Height - FooterContainer1.Height
+                    )
+                Item: =galleryAccounts1.Selected
+                LayoutMinHeight: =500
+                LayoutMinWidth: =250
+                NumberOfColumns: =4
+                ZIndex: =2
+
+                "'Account Number_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="accountnumber"
+                    Default: =ThisItem.'Account Number'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: ="Account Number"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =240
+                    X: =3
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey5 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue5 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                        ZIndex: =2
+
+                "'Address 1_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="address1_composite"
+                    Default: =ThisItem.'Address 1'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: ="Address 1"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =240
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey6 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue6 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                        ZIndex: =2
+
+                "'Address 1: County_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="address1_county"
+                    Default: |-
+                        =ThisItem.'Address 1: County'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: |-
+                        ="Address 1: County"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =240
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey7 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue7 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                "'Created On_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="createdon"
+                    Default: =ThisItem.'Created On'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: ="Created On"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =240
+                    X: =2
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey11 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue11 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                        ZIndex: =2
+
+                Status_DataCard1 As typedDataCard.comboBoxOptionSetSingleViewCard:
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="statecode"
+                    Default: =ThisItem.Status
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: ="Status"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue12.Selected
+                    Width: =240
+                    X: =3
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey12 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue12 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        ChevronBackground: =RGBA(30, 14, 91, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(30, 14, 91, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(185, 173, 246, 1)
+                        IsSearchable: =false
+                        Items: =Choices('Status (Accounts)')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(92, 74, 168, 1)
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(30, 14, 91, 1)
+                        SelectMultiple: =false
+                        Size: =13
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage4 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue12.Y + DataCardValue12.Height
+                        ZIndex: =3
+
+                    StarVisible4 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =DataCardKey12.Height
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey12.Y
+                        ZIndex: =4
+
+                "'Account Name_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="name"
+                    Default: =ThisItem.'Account Name'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: ="Account Name"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =true
+                    Width: =239
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+                    DataCardKey8 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue8 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                        ZIndex: =2
+
+                "'Main Phone_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="telephone1"
+                    Default: =ThisItem.'Main Phone'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: ="Main Phone"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =239
+                    X: =1
+                    Y: =0
+                    ZIndex: =3
+
+                    DataCardKey9 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue9 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                        ZIndex: =2
+
+                "'Address 1: City_DataCard1' As typedDataCard.textualViewCard":
+                    BorderColor: =RGBA(92, 74, 168, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="address1_city"
+                    Default: |-
+                        =ThisItem.'Address 1: City'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: |-
+                        ="Address 1: City"
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =239
+                    X: =2
+                    Y: =0
+                    ZIndex: =3
+
+                    DataCardKey10 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(92, 74, 168, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Height: =34
+                        Size: =13
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue10 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(92, 74, 168, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                        ZIndex: =2
+
+        FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(83, 67, 151, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =4
+
+            lblCopyRight As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                Size: =13
+                Text: ="All rights reserved"
+                ZIndex: =1
+
+            lblYear As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Size: =13
+                Text: =Year(Now())
+                ZIndex: =2
+

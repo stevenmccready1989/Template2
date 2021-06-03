@@ -1,0 +1,73 @@
+{
+  "Resources": [
+    {
+      "Content": "Image",
+      "FileName": "/ctrllib/image/images/SampleImage.svg",
+      "IsSampleData": true,
+      "IsWritable": false,
+      "Name": "SampleImage",
+      "Path": "/ctrllib/image/images/SampleImage.svg",
+      "ResourceKind": "Uri",
+      "RootPath": "ms-appx:///ctrllib/image/images/SampleImage.svg",
+      "Schema": "i",
+      "Type": "ResourceInfo"
+    },
+    {
+      "Content": "Image",
+      "FileName": "0001.png",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Name": "1200px-Silver_fern_flag.svg",
+      "Path": "Assets\\Images\\0001.png",
+      "ResourceKind": "LocalFile",
+      "Schema": "i",
+      "Type": "ResourceInfo"
+    },
+    {
+      "Content": "Image",
+      "FileName": "0002.png",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Name": "FujitsuLogo",
+      "Path": "Assets\\Images\\0002.png",
+      "ResourceKind": "LocalFile",
+      "Schema": "i",
+      "Type": "ResourceInfo"
+    },
+    {
+      "Content": "Image",
+      "FileName": "0003.jpg",
+      "IsSampleData": false,
+      "IsWritable": false,
+      "Name": "Template",
+      "Path": "Assets\\Images\\0003.jpg",
+      "ResourceKind": "LocalFile",
+      "Schema": "i",
+      "Type": "ResourceInfo"
+    },
+    {
+      "Content": "Pdf",
+      "FileName": "/ctrllib/pdfViewer/data/SamplePdf.pdf",
+      "IsSampleData": true,
+      "IsWritable": false,
+      "Name": "SamplePdf",
+      "Path": "/ctrllib/pdfViewer/data/SamplePdf.pdf",
+      "ResourceKind": "Uri",
+      "RootPath": "ms-appx:///ctrllib/pdfViewer/data/SamplePdf.pdf",
+      "Schema": "o",
+      "Type": "ResourceInfo"
+    },
+    {
+      "Content": "Video",
+      "FileName": "/ctrllib/videoPlayback/media/SampleVideo.mp4",
+      "IsSampleData": true,
+      "IsWritable": false,
+      "Name": "SampleVideo",
+      "Path": "/ctrllib/videoPlayback/media/SampleVideo.mp4",
+      "ResourceKind": "Uri",
+      "RootPath": "ms-appx:///ctrllib/videoPlayback/media/SampleVideo.mp4",
+      "Schema": "m",
+      "Type": "ResourceInfo"
+    }
+  ]
+}
